@@ -1,0 +1,15 @@
+@import 'sb-admin-2.css';
+
+#breakings {
+  max-width: 30%;
+}
+.sort-handle{
+  cursor: pointer;
+}
+.d-none{
+  opacity: 0 !important;
+}
+
+.loading {
+  transition: .4s;
+}
