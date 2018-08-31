@@ -10,6 +10,7 @@ $(function () {
         responsive: true
     });*/
 
+
     $('.repeater').repeater({
         show: function () {
             $(this).show();
@@ -42,6 +43,12 @@ $(function () {
                     }
                 })
             }
+        });
+    });
+    $('.sortable-list').each(function () {
+        new Sortable(this, {
+            animation: 150,
+            handle: ".sort-handle",
         });
     });
 

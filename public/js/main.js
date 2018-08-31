@@ -448,24 +448,79 @@ $(function () {
 
     $(document).on('click', '.model_target', function () {
 
-            var dataValue = $(this).data().model;
+        var dataValue = $(this).data().model;
 
 
-            $('[data-device]').each(function() {
+        $('[data-device]').each(function() {
 
-                var dataCurrentValue = $(this).data().device;
+            var dataCurrentValue = $(this).data().device;
 
-                if (dataCurrentValue != dataValue) {
+            if (dataCurrentValue != dataValue) {
 
-                    $(this).hide();
+                $(this).hide();
 
-                } else {
+            } else {
 
-                    $(this).show();
-                }
+                $(this).show();
+            }
 
-            });
+        });
 
     });
 
 }(window.jQuery);
+
+$(function () {
+
+    $('.callback8').on('click', function (event) {
+        event.preventDefault();
+        $('.views').fadeOut(0);
+        $('.help_view').fadeIn(300);
+
+    });
+
+
+    window.addEventListener("message", receiveMessage, false);
+
+
+    function receiveMessage(event) {
+        if (event.data == 'iphone') {
+            $('button[data-btn="iPhone"]').click();
+        }
+        if (event.data == 'macbook') {
+            $('button[data-btn="MacBook"]').click();
+        }
+        if (event.data == 'ipad') {
+            $('button[data-btn="iPad"]').click();
+        }
+        if (event.data == 'watch') {
+            $('button[data-btn="Watch"]').click();
+        }
+
+    }
+
+
+    // var iFrameResizer = {
+    //     messageCallback: function(message){
+    //         if(messageData.message == 'iphone'){ 
+    //             $('button[data-btn="iPhone"]').click()
+    //         }
+    //         alert(message,parentIFrame.getId());
+    //     } 
+    // }
+
+
+    $('.contactform2').submit(function () {
+        if ($(this).validationEngine('validate')) {
+            $(this).ajaxSubmit();
+            $(this).clearForm();
+            $('.views').fadeOut(0);
+            $('.thanks_view').fadeIn(300);
+        }
+        return false;
+    });
+
+    $.each($('.minconf span.textbtn'), function (index, val) {
+        $(val).text($(val).closest('form').find('button, input[type="submit"]').text());
+    });
+});

@@ -98,35 +98,15 @@ class DeviceController extends Controller
         $device->update($request->all());
         $input_breakings = $request->input('breakings');
 
-        /*if (isset($input_breakings)) {
-
-        foreach ($request->get('breakings') as $breaking) {
-
-            $modal_mode_on1 = strpos($breaking['min_price'],'|') != false;
-            $modal_mode_on2 = strpos($breaking['max_price'],'|') != false;
-            if ($modal_mode_on1 != $modal_mode_on2)
-            {
-                return redirect()->back()->with('error', 'Цена не коректна');
-            }
-
-            if (strpos($breaking['min_price'], '|') || strpos($breaking['max_price'], '|')) {
-                $min_prices = explode('|', $breaking['min_price']);
-                $max_prices = explode('|', $breaking['max_price']);
-
-
-                if ((count($min_prices) >2 || $min_prices[1] == '') || (count($max_prices) >2 || $max_prices[1] == '')) {
-                    return redirect()->back()->with('error', 'Цена не коректна');
-                }
-            }
-        }
-        };*/
 
         $keyed = [];
         if (isset($input_breakings)) {
         foreach ($input_breakings as $input_breaking) {
             $keyed[$input_breaking['breaking_id']] = $input_breaking;
         }}
-        $device->breakings()->sync($keyed);
+        $breakings = $device->breakings();
+        $breakings->detach();
+        $breakings->sync($keyed);
         return redirect()->back()->with('success', 'Модель обновлена!');
     }
 

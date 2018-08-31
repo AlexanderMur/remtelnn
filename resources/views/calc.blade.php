@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="{{ asset('dist/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 <body class="abtester">
@@ -16,7 +17,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -101,7 +102,7 @@
 
                                                                 @foreach ($cat->devices as $device)
                                                                     @if ($device->subcategories != ' ' && $device->subcategories != '')
-                                                                        
+
 
                                                                 <div class="flex">
                                                                     <div class="left">
@@ -117,7 +118,7 @@
 
                                                                     @endif
                                                                 @endforeach
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -133,7 +134,7 @@
 
                                 <div data-view="{{$cat->name}}_view" data-lvl="2" class="block_imac views faded">
                                     <div class="form">
-                                        <form id="frm2" method="post" action="{{ asset('dist/mail.php') }}" class="contactform2">
+                                        <form id="frm2" method="post" action="{{ asset('mail.php') }}" class="contactform2">
                                             <div class="zag">{{$cat->stub}}</div>
                                             <div class="text">Оставьте свой номер, мы подскажем стоимость и время работ.</div>
                                             <input id="phone" type="text" name="phone" placeholder="+7 (___) ___-__-__"
@@ -168,7 +169,7 @@
                                             <div class="block flex-justify-center">
 
                                                 @foreach ($device->breakings as $breaking)
-                                                    
+
                                                     @if ($breaking->is_additional_window())
 
                                                         <button data-btn="{{$device->name}}_iphone_display" data-toggle="progressbar" data-target="#myProgressbar"
@@ -201,7 +202,7 @@
 
                                 @endforeach
                                 <div class="form">
-                                    <form id="frm2" method="post" action="{{ asset('dist/mail.php') }}" class="contactform2">
+                                    <form id="frm2" method="post" action="{{ asset('mail.php') }}" class="contactform2">
                                         <div class="zag">Вашей поломки нет в списке?</div>
                                         <div class="text">Оставьте свой номер, мы подскажем стоимость и время работ.</div>
                                         <input id="phone" type="text" name="phone" placeholder="+7 (___) ___-__-__"
@@ -299,7 +300,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form">
-                                        <form id="frm2" method="post" action="{{ asset('dist/mail.php') }}" class="contactform2">
+                                        <form id="frm2" method="post" action="{{ asset('mail.php') }}" class="contactform2">
                                             <div class="zag">Оставьте свои данные ниже, менеджер зафиксирует стоимость,
                                                 <br>и она не изменится в
                                                 ходе работ.
@@ -329,7 +330,7 @@
                                 <h2><span>Спасибо, заявка отправлена!</span></h2>
                                 <div class="zag">Мы свяжемся с вами в течении 15 минут</div>
                             </div>
-                            
+
                         </div>
 
                         <!-- Консультация уровень-->
@@ -339,7 +340,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form">
-                                        <form id="frm2" method="post" action="{{ asset('dist/mail.php') }}" class="contactform2">
+                                        <form id="frm2" method="post" action="{{ asset('mail.php') }}" class="contactform2">
                                             <div class="zag">Введите свои данные ниже, наш менеджер свяжется с Вами в течение 5 минут для консультации и ответов на все Ваши вопросы.
                                             </div>
                                             <input id="phone" type="text" name="phone" placeholder="+7 (___) ___-__-__"
@@ -368,12 +369,12 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script src="{{ asset('dist/jquery.validationengine.js') }}"></script>
-<script src="{{ asset('dist/jquery.validationEngine-ru.js') }}"></script>
-<script src="{{ asset('dist/jquery.form.js') }}"></script>
+<script src="{{ asset('js/jquery.validationengine.js') }}"></script>
+<script src="{{ asset('js/jquery.validationEngine-ru.js') }}"></script>
+<script src="{{ asset('js/jquery.form.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('dist/iframeResizer.contentWindow.min.js') }}" defer></script>
-<script src="{{ asset('dist/main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/iframeResizer.contentWindow.min.js') }}" defer></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <script>
     var iFrameResizer = {
             messageCallback: function(message){
