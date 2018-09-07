@@ -224,9 +224,6 @@
 
 
                                                     @else
-                                                        <?php var_dump($breaking->pivot->info_time) ?>
-                                                        <?php var_dump($breaking->pivot->info_guarantee) ?>
-                                                        <?php var_dump($breaking->pivot->info_custom) ?>
 
                                                         <button data-{{$device->id}}-min="{{$breaking->parse_price('min')}}"
                                                                 data-{{$device->id}}-max="{{$breaking->parse_price('max')}}"

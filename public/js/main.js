@@ -480,23 +480,13 @@ $(function () {
     });
 
 
-    window.addEventListener("message", receiveMessage, false);
+    function getQueryStringParam (string,key) {
+        return decodeURIComponent(string.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
 
-
-    function receiveMessage(event) {
-        if (event.data == 'iphone') {
-            $('button[data-btn="iPhone"]').click();
-        }
-        if (event.data == 'macbook') {
-            $('button[data-btn="MacBook"]').click();
-        }
-        if (event.data == 'ipad') {
-            $('button[data-btn="iPad"]').click();
-        }
-        if (event.data == 'watch') {
-            $('button[data-btn="Watch"]').click();
-        }
-
+    var cat = getQueryStringParam(location.search,'cat')
+    if (cat) {
+        $(`button[data-btn="${cat}"]`).click();
     }
 
 

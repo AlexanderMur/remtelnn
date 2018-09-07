@@ -33,10 +33,7 @@ class Device extends Model
 
         return $this->belongsToMany(Breaking::class)->withPivot(
             'min_price',
-            'max_price',
-            'info_time',
-            'info_guarantee',
-            'info_custom'
+            'max_price'
             );
 
     }
